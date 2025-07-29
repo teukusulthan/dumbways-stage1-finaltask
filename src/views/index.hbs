@@ -1,226 +1,435 @@
 <html lang="en">
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {{!-- TITLE --}}
-    <title>Teuku Sulthan</title>
-    {{!-- FAVICON --}}
-    <link rel="icon" type="image/png" href="assets/icons/logosulthan.png"/>
-    <link
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      {{!-- TITLE --}}
+      <title>Teuku Sulthan</title>
+      {{!-- FAVICON --}}
+      <link rel="icon" type="image/png" href="assets/icons/logosulthan.png"/>
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+         />
+      <link
       {{!-- GOOGLE FONTS --}}
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
       rel="stylesheet"
-    />
-    {{!-- TAILWIND --}}
-    <link rel="stylesheet" href="/css/styles.css" />
-  </head>
-
-  <body class="bg-white dark:bg-zinc-950 text-gray-900 dark:text-white transition-colors duration-300">
-    {{!-- NAVBAR --}}
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-zinc-950 transition-colors duration-300">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div class="flex items-center justify-between">
-          {{!-- lOGO --}}
-          <a class="group" href="/"> 
-          <img class="h-8 w-auto transition-transform group-hover:scale-110 duration-500" src="assets/icons/logosulthan.png" alt="TS Logo">
-          </a>
-
-          <div class="hidden md:flex items-center space-x-6 ">
-            {{!-- NAV LINKS --}}
-            <a  href="#tech-stack" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer">Tech Stack</a>
-            <a  href="#experience" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer">Experience</a>
-            <a  href="#projects" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer">Projects</a>
-            {{!-- CONTACT ME BUTTON --}}
-            <a href="https://wa.me/6281292957358" target="_blank" class="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-lg transition-colors flex items-center font-medium"> 
-             <img class="w-4 h-4 mr-2" src="assets/icons/wa.png" alt=""> Contact me
-             {{!-- DOWNLOAD CV BUTTON --}}
-             <a href="https://www.linkedin.com/in/teuku-sulthan-4171a32a7/" target="_blank" class="bg-black dark:bg-white text-white dark:text-gray-900 text-sm px-4 py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors flex items-center font-medium"> 
-               <svg
-                  class="w-4 h-4 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  ></path>
-                </svg>
-                Download CV
-            </a>
-            {{!-- DARK MODE SWITCH --}}
-            <button id="theme-switcher" class="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-              {{!-- SUN ICON --}}
-              <svg
-                  class="w-5 h-5 hidden dark:block"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                  ></path>
-              </svg>
-              {{!-- MOON ICON --}}
-              <svg
-                class="w-5 h-5 block dark:hidden"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                ></path>
-              </svg>
-            </button>
-          </div>
-
-          {{!-- MOBILE HAMBURGER MENU--}}
-          <div class="flex items-center space-x-4 md:hidden">
-            {{!-- MOBILE THEME SWITCHER --}}
-            <button id="mobile-theme-switcher" class="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-              {{!-- SUN ICON --}}
-              <svg
-                  class="w-5 h-5 hidden dark:block"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                  ></path>
-              </svg>
-              {{!-- MOON ICON --}}
-              <svg
-                class="w-5 h-5 block dark:hidden"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                ></path>
-              </svg>
-            </button>
-
-            {{!-- HAMBURGER BUTTON --}}
-            <button
-                id="mobile-menu-button"
-                class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-              >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    {{!-- Spacer --}}
-    <div class="h-20"></div>
-
-    <main class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
-      <div class="flex flex-col lg:flex-row items-center lg:items-center gap-12">
-
-
-        {{!-- Profile Picture Section --}}
-        <div class="w-full lg:w-[35%] flex justify-center items-center">
-          <div class="relative group">
-            <div class="absolute inset-0 -z-10 rounded-xl blur-xl opacity-20 group-hover:opacity-40 transition duration-700 bg-gradient-to-br from-indigo-500 to-pink-500"></div>
-            <img
-              src="assets/images/sulthan.jpg"
-              alt="Teuku Sulthan"
-              class="w-60 h-60 md:w-72 md:h-72 rounded-xl object-cover shadow-lg transform transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-        </div>
-
-        {{!-- Introduction Content --}}
-        <div class="w-full lg:w-[65%] text-center lg:text-left">
-          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
-            Hello, I'm Teuku Sulthan
-          </h1>
-          <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 font-medium mb-5">
-            Full-Stack Web Developer 
-          </p>
-          <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-            I design and build full-stack applications using modern tools like Express, PostgreSQL, and React.
-            Whether it's backend APIs or frontend UI, I enjoy crafting reliable software that people love to use.
-          </p>
-
-          {{!-- Location & Availability --}}
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start sm:items-center sm:space-x-6 mt-8 space-y-4 sm:space-y-0">
-            <div class="flex items-center space-x-2">
-              <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span class="text-gray-500 dark:text-gray-400">Jakarta, Indonesia</span>
+      />
+      {{!-- TAILWIND --}}
+      <link rel="stylesheet" href="/css/styles.css" />
+   </head>
+   <body class="bg-white dark:bg-zinc-950 text-gray-900 dark:text-white transition-colors duration-300">
+      {{!-- NAVBAR --}}
+      <nav class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-zinc-950 transition-colors duration-300">
+         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+               {{!-- lOGO --}}
+               <a class="group" href="/"> 
+               <img class="h-8 w-auto transition-transform group-hover:scale-110 duration-500" src="assets/icons/logosulthan.png" alt="TS Logo">
+               </a>
+               <div class="hidden md:flex items-center space-x-6 ">
+                  {{!-- NAV LINKS --}}
+                  <a  href="#tech-stack" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer">Tech Stack</a>
+                  <a  href="#experience" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer">Experience</a>
+                  <a  href="#projects" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer">Projects</a>
+                  {{!-- CONTACT ME BUTTON --}}
+                  <a href="https://wa.me/6281292957358" target="_blank" class="bg-green-600 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-lg transition-colors flex items-center font-medium"> 
+                  <img class="w-4 h-4 mr-2" src="assets/icons/wa.png" alt=""> Contact me
+                  {{!-- DOWNLOAD CV BUTTON --}}
+                  <a href="https://www.linkedin.com/in/teuku-sulthan-4171a32a7/" target="_blank" class="bg-black dark:bg-white text-white dark:text-gray-900 text-sm px-4 py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors flex items-center font-medium">
+                     <svg
+                        class="w-4 h-4 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        >
+                        <path
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="2"
+                           d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                           ></path>
+                     </svg>
+                     Download CV
+                  </a>
+                  {{!-- DARK MODE SWITCH --}}
+                  <button id="theme-switcher" class="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                     {{!-- SUN ICON --}}
+                     <svg
+                        class="w-5 h-5 hidden dark:block"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        >
+                        <path
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="2"
+                           d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                           ></path>
+                     </svg>
+                     {{!-- MOON ICON --}}
+                     <svg
+                        class="w-5 h-5 block dark:hidden"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        >
+                        <path
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="2"
+                           d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                           ></path>
+                     </svg>
+                  </button>
+               </div>
+               {{!-- MOBILE HAMBURGER MENU--}}
+               <div class="flex items-center space-x-4 md:hidden">
+                  {{!-- MOBILE THEME SWITCHER --}}
+                  <button id="mobile-theme-switcher" class="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                     {{!-- SUN ICON --}}
+                     <svg
+                        class="w-5 h-5 hidden dark:block"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        >
+                        <path
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="2"
+                           d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                           ></path>
+                     </svg>
+                     {{!-- MOON ICON --}}
+                     <svg
+                        class="w-5 h-5 block dark:hidden"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        >
+                        <path
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="2"
+                           d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                           ></path>
+                     </svg>
+                  </button>
+                  {{!-- HAMBURGER BUTTON --}}
+                  <button
+                     id="mobile-menu-button"
+                     class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                     >
+                     <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        >
+                        <path
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="2"
+                           d="M4 6h16M4 12h16M4 18h16"
+                           ></path>
+                     </svg>
+                  </button>
+               </div>
             </div>
-            <div class="flex items-center space-x-2">
-              <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span class="text-gray-500 dark:text-gray-400">Currently Available</span>
+         </div>
+      </nav>
+      {{!-- SPACER --}}
+      <div class="h-20"></div>
+      <main class="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
+         {{!-- HERO SECTION --}}
+         <div class="flex flex-col lg:flex-row items-center gap-12 mb-24 lg:items-center">
+            {{!-- PROFILE PICTURE SECTION --}}
+            <div class="w-full lg:w-1/2 flex justify-center">
+               <div class="relative group">
+                  <div
+                     class="absolute inset-0 -z-10 rounded-xl blur-xl opacity-20 group-hover:opacity-40 transition duration-700 bg-gradient-to-br from-indigo-500 to-pink-500"
+                     ></div>
+                  <img
+                     src="assets/images/sulthan.jpg"
+                     alt="Teuku Sulthan"
+                     class="w-72 h-72 md:w-96 md:h-96 rounded-xl object-cover shadow-lg transform transition-transform duration-500 group-hover:scale-105"
+                     />
+               </div>
             </div>
-          </div>
-
-
-          {{!-- Call-to-Action Buttons --}}
-          <div class="flex flex-col sm:flex-row items-center sm:justify-center lg:justify-start gap-4 mt-10">
-            <a
-              href="https://wa.me/6281292957358"
-              target="_blank"
-              class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg shadow-md transition font-medium flex items-center"
-            >
-              <img src="assets/icons/wa.png" alt="WhatsApp" class="w-5 h-5 mr-2" />
-              Chat on WhatsApp
-            </a>
-            <a
-              href="https://www.linkedin.com/in/teuku-sulthan-4171a32a7/"
-              target="_blank"
-              class="bg-gray-900 hover:bg-gray-800 text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg shadow-md transition font-medium flex items-center"
-            >
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              View My CV
-            </a>
-          </div>
-        </div>
-      </div>
-    </main>
-
-
-
-    <script src="/js/theme.js"></script>
-    <script src="/js/menu.js"></script>
-  </body>
+            {{!-- INTRODUCTION CONTENT --}}
+            <div class="w-full lg:w-1/2 text-center lg:text-left max-w-xl">
+               <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-balance">
+                  Hello, I'm <br /><span class="text-green-600">Teuku Sulthan</span>
+               </h1>
+               <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 font-medium mb-4">
+                  Full-Stack Web Developer
+               </p>
+               <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                  I design and develop full-stack web applications with a focus on performance, reliability,
+                  and user experience. Using modern technologies like Express.js, PostgreSQL, and Tailwind CSS,
+                  I build scalable backend systems and responsive frontend interfaces. I’m committed to
+                  delivering clean, maintainable code and software solutions that create real impact.
+               </p>
+               {{!-- LOCATION & AVAILABILITY --}}
+               <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-start gap-4 mb-6"
+                  >
+                  <div class="flex items-center space-x-2">
+                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="2"
+                           d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                           />
+                        <path
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="2"
+                           d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                           />
+                     </svg>
+                     <span class="text-gray-500 dark:text-gray-400">Jakarta, Indonesia</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                     <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                     <span class="text-gray-500 dark:text-gray-400">Currently Available</span>
+                  </div>
+               </div>
+               {{!-- CALL-TO-ACTION BUTTONS --}}
+               <div class="flex flex-col sm:flex-row items-center sm:justify-start gap-4">
+                  <a
+                     href="https://wa.me/6281292957358"
+                     target="_blank"
+                     class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg shadow-md transition font-medium flex items-center"
+                     >
+                  <img src="assets/icons/wa.png" alt="WhatsApp" class="w-5 h-5 mr-2" />
+                  Contact Me
+                  </a>
+                  <a
+                     href="https://www.linkedin.com/in/teuku-sulthan-4171a32a7/"
+                     target="_blank"
+                     class="bg-gray-900 hover:bg-gray-800 text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 px-6 py-3 rounded-lg shadow-md transition font-medium flex items-center"
+                     >
+                     <svg
+                        class="w-5 h-5 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        >
+                        <path
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           stroke-width="2"
+                           d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                           />
+                     </svg>
+                     View My CV
+                  </a>
+               </div>
+            </div>
+         </div>
+         <div id="tech-stack">
+            <!-- Tech Stack Section -->
+            <div class="mb-24">
+               <h2 class="text-2xl md:text-3xl font-bold mb-12">
+                  Tech Stack - Tools I Use Everyday
+               </h2>
+               <!-- Swiper Container -->
+               <div class="relative">
+                  <!-- Gradient Overlay Left -->
+                  <div
+                     class="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-white dark:from-zinc-950 to-transparent pointer-events-none"
+                     ></div>
+                  <!-- Gradient Overlay Right -->
+                  <div
+                     class="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-white dark:from-zinc-950 to-transparent pointer-events-none"
+                     ></div>
+                  <div class="swiper tech-swiper max-h-[140px]">
+                     <div class="swiper-wrapper py-4">
+                        <!-- Node.js -->
+                        <div class="swiper-slide">
+                           <div class="tech-item">
+                              <div class="tech-icon">
+                                 <img src="assets/images/node.png" alt="Node.js" />
+                              </div>
+                              <span>Node.js</span>
+                           </div>
+                        </div>
+                        <!-- Express.js -->
+                        <div class="swiper-slide">
+                           <div class="tech-item">
+                              <div class="tech-icon">
+                                 <img src="assets/images/express.png" alt="Express.js" />
+                              </div>
+                              <span>Express.js</span>
+                           </div>
+                        </div>
+                        <!-- TypeScript -->
+                        <div class="swiper-slide">
+                           <div class="tech-item">
+                              <div class="tech-icon">
+                                 <img src="assets/images/typescript.png" alt="TypeScript" />
+                              </div>
+                              <span>TypeScript</span>
+                           </div>
+                        </div>
+                        <!-- JavaScript -->
+                        <div class="swiper-slide">
+                           <div class="tech-item">
+                              <div class="tech-icon">
+                                 <img src="assets/images/javascript.png" alt="JavaScript" />
+                              </div>
+                              <span>JavaScript</span>
+                           </div>
+                        </div>
+                        <!-- PostgreSQL -->
+                        <div class="swiper-slide">
+                           <div class="tech-item">
+                              <div class="tech-icon">
+                                 <img src="assets/images/postgre.png" alt="PostgreSQL" />
+                              </div>
+                              <span>PostgreSQL</span>
+                           </div>
+                        </div>
+                        <!-- React -->
+                        <div class="swiper-slide">
+                           <div class="tech-item">
+                              <div class="tech-icon">
+                                 <img src="assets/images/react.png" alt="React" />
+                              </div>
+                              <span>React</span>
+                           </div>
+                        </div>
+                        <!-- Next.js -->
+                        <div class="swiper-slide">
+                           <div class="tech-item">
+                              <div class="tech-icon">
+                                 <img src="assets/images/next.png" alt="Next.js" />
+                              </div>
+                              <span>Next.js</span>
+                           </div>
+                        </div>
+                        <!-- Tailwind -->
+                        <div class="swiper-slide">
+                           <div class="tech-item">
+                              <div class="tech-icon">
+                                 <img src="assets/images/tailwind.png" alt="Tailwind" />
+                              </div>
+                              <span>Tailwind</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <style>
+               .tech-item {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               }
+               .tech-icon {
+               width: 4rem;
+               height: 4rem;
+               background: white;
+               border-radius: 0.75rem;
+               padding: 0.75rem;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+               transition: all 0.3s ease;
+               }
+               .dark .tech-icon {
+               background: rgb(27, 28, 28);
+               }
+               .tech-icon:hover {
+               transform: scale(1.05);
+               box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+               0 2px 4px -1px rgba(0, 0, 0, 0.06);
+               }
+               .tech-icon img {
+               width: 100%;
+               height: 100%;
+               object-fit: contain;
+               }
+               .tech-item span {
+               margin-top: 0.75rem;
+               font-size: 0.875rem;
+               color: rgb(75, 85, 99);
+               }
+               .dark .tech-item span {
+               color: rgb(156, 163, 175);
+               }
+               @media (max-width: 640px) {
+               .tech-icon {
+               width: 3rem;
+               height: 3rem;
+               padding: 0.5rem;
+               }
+               }
+               /* Swiper Custom Styles */
+               .tech-swiper {
+               overflow: hidden;
+               }
+               .tech-swiper .swiper-wrapper {
+               transition-timing-function: linear !important;
+               will-change: transform;
+               }
+               .tech-swiper .swiper-slide {
+               width: auto;
+               padding: 0 1rem;
+               }
+            </style>
+         </div>
+         <div id="experience">
+            <!-- Experience Section -->
+            <div class="mb-20">
+               <div class="mb-10">
+                  <h2 class="text-2xl md:text-3xl font-bold">Experience</h2>
+               </div>
+               <div class="space-y-6">
+                  <!-- DumbWays -->
+                  <div class="flex flex-col md:flex-row items-start border border-gray-200 dark:border-zinc-800 p-6 md:p-8 rounded-xl bg-white dark:bg-zinc-900">
+                     <img
+                        src="assets/images/dumbways.png"
+                        alt="DumbWays"
+                        class="w-16 h-16 rounded-lg mb-4 md:mb-0 object-contain"
+                        />
+                     <div class="md:ml-6 flex-grow">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                           <div>
+                              <h3 class="text-lg font-semibold">Full Stack Web Development Student</h3>
+                              <p class="text-sm text-green-600">DumbWays Indonesia</p>
+                           </div>
+                           <span class="text-sm text-gray-500 dark:text-gray-400 mt-2 md:mt-0">Jun 2025 - Present</span>
+                        </div>
+                        <ul class="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1 mb-4">
+                           <li>Learned Git & GitHub for version control.</li>
+                           <li>Studied HTML, CSS, JavaScript fundamentals.</li>
+                           <li>Mastered modern styling with Tailwind and Bootstrap.</li>
+                           <li>Built backend apps using Node.js & Express.js.</li>
+                           <li>Worked with PostgreSQL for database operations.</li>
+                           <li>Created multiple full-stack projects to apply skills.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                           <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs text-gray-700 dark:text-gray-300">JavaScript</span>
+                           <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs text-gray-700 dark:text-gray-300">Node.js</span>
+                           <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs text-gray-700 dark:text-gray-300">Express</span>
+                           <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs text-gray-700 dark:text-gray-300">PostgreSQL</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+      <script src="/js/tech-swiper.js"></script>
+      <script src="/js/theme.js"></script>
+      <script src="/js/menu.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+   </body>
 </html>
