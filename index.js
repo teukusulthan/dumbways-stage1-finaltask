@@ -1,49 +1,99 @@
-// import express from "express";
-
-// const app = express();
-// const port = 3000;
-
-// app.listen(port, () => {
-//   console.log(`app listening on port ${port}`);
-// });
-
-// app.set("view engine", "hbs");
-// app.set("views", "src/views");
-// app.use(express.static("public"));
-// app.use("/assets", express.static("src/assets"));
-// app.use(express.urlencoded({ extended: true }));
-
-// app.get("/", (req, res) => {
-//   res.render("index");
-// });
-
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-
-// === fix path untuk ES module ===
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { Pool } from "pg";
+import multer from "multer";
+import hbs from "hbs";
 
 const app = express();
 const port = 3000;
 
-// === view engine setup ===
-app.set("view engine", "hbs");
-app.set("views", path.join(__dirname, "src", "views"));
+// === ESM Compatibility ===
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// === serve static public files === ✅ WAJIB pakai absolute path
-app.use(express.static(path.join(__dirname, "public")));
-
-// === jika kamu memang perlu assets seperti gambar/file mentah ===
-app.use("/assets", express.static(path.join(__dirname, "src", "assets")));
-
-app.use(express.urlencoded({ extended: true }));
-
-app.get("/", (req, res) => {
-  res.render("index");
+// === PostgreSQL Connection ===
+const db = new Pool({
+  user: "postgres",
+  password: "root",
+  host: "localhost",
+  port: 5432,
+  database: "du-stage1-final",
+  max: 20,
 });
 
+// === Multer Storage Configuration ===
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, "public", "uploads"));
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    const uniqueName = `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`;
+    cb(null, uniqueName);
+  },
+});
+
+const upload = multer({ storage });
+
+// === View Engine: Handlebars ===
+app.set("view engine", "hbs");
+app.engine("hbs", hbs.__express);
+app.set("views", path.join(__dirname, "src", "views"));
+
+// === Static File Middleware ===
+app.use(express.static(path.join(__dirname, "public")));
+app.use("/assets", express.static(path.join(__dirname, "src", "assets")));
+app.use(express.urlencoded({ extended: true }));
+
+// === Routes ===
+
+// Homepage - Display all projects
+app.get("/", async (req, res) => {
+  try {
+    const result = await db.query("SELECT * FROM project ORDER BY id DESC");
+
+    const projects = result.rows.map((project) => ({
+      ...project,
+      technologies: project.technologies
+        ? project.technologies.split(",").map((t) => t.trim())
+        : [],
+    }));
+
+    res.render("index", { projects });
+  } catch (err) {
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Add Project Form
+app.get("/add-project", (req, res) => {
+  res.render("add-project");
+});
+
+// Handle Add Project Form Submission
+app.post("/add-project", upload.single("upload"), async (req, res) => {
+  try {
+    const { project_name, description, technologies, github_link } = req.body;
+
+    const fileName = `/uploads/${req.file.filename}`;
+    const techString = Array.isArray(technologies)
+      ? technologies.join(", ")
+      : technologies;
+
+    await db.query(
+      `INSERT INTO project (project_name, description, technologies, github, upload)
+       VALUES ($1, $2, $3, $4, $5)`,
+      [project_name, description, techString, github_link, fileName]
+    );
+
+    res.redirect("/");
+  } catch (err) {
+    res.status(500).send("Failed to save project");
+  }
+});
+
+// Start Server
 app.listen(port, () => {
   console.log(`App listening on http://localhost:${port}`);
 });

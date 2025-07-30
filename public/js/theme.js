@@ -7,22 +7,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // Retrieve the saved theme from localStorage
   const savedTheme = localStorage.getItem("theme");
 
-  // Apply the dark theme by default if:
-  // - No theme is saved yet (first-time visitor)
-  // - Or the saved theme is explicitly "dark"
+  // Apply dark theme by default if:
+  // - No theme is saved yet (first-time visit)
+  // - Or the saved theme is explicitly set to "dark"
   if (savedTheme === "dark" || savedTheme === null) {
     document.documentElement.classList.add("dark");
-    localStorage.setItem("theme", "dark"); // Save default dark theme if not already saved
+    localStorage.setItem("theme", "dark"); // Persist the default theme
   }
 
   // Function to toggle between dark and light theme
   const toggleTheme = () => {
-    document.documentElement.classList.toggle("dark"); // Toggle dark mode class on <html>
+    document.documentElement.classList.toggle("dark");
     const isDark = document.documentElement.classList.contains("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light"); // Save user's preference
+    localStorage.setItem("theme", isDark ? "dark" : "light");
   };
 
-  // Attach toggle function to both buttons (if they exist in the DOM)
+  // Attach the toggle function to both switchers if they exist
   if (switcher) switcher.addEventListener("click", toggleTheme);
   if (mobileSwitcher) mobileSwitcher.addEventListener("click", toggleTheme);
 });

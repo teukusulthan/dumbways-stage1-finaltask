@@ -1,0 +1,254 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{! TITLE }}
+    <title>Add Project</title>
+    {{! FAVICON }}
+    <link rel="icon" type="image/png" href="assets/icons/logosulthan.png" />
+    {{!GOOGLE FONTS}}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    {{! TAILWIND }}
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+
+  <body
+    class="font-[Poppins] bg-white dark:bg-zinc-950 text-gray-800 dark:text-white"
+  >
+    {{! HEADER }}
+    <nav
+      class="fixed top-0 left-0 right-0 z-40 bg-white dark:bg-zinc-950 transition-colors duration-300 shadow-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex items-center justify-between">
+          {{! LOGO }}
+          <a class="group" href="/">
+            <img
+              class="h-8 w-auto transition-transform group-hover:scale-110 duration-500"
+              src="assets/icons/logosulthan.png"
+              alt="TS Logo"
+            />
+          </a>
+
+          <div class="flex items-center space-x-6">
+            {{! NAV LINK }}
+            <a
+              href="#add-project"
+              class="text-xl text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+            >Teuku Sulthan</a>
+
+            {{! THEME SWITCH }}
+            <button
+              id="theme-switcher"
+              class="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              {{! SUN ICON }}
+              <svg
+                class="w-5 h-5 hidden dark:block"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                ></path>
+              </svg>
+              {{! MOON ICON }}
+              <svg
+                class="w-5 h-5 block dark:hidden"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    {{! FORM WRAPPER }}
+    <main class="py-24 px-4">
+      <div
+        class="max-w-xl mx-auto bg-white dark:bg-zinc-950 shadow-md rounded-xl p-6 sm:p-8"
+      >
+        {{! TITLE }}
+        <section class="mb-6 text-center">
+          <h1 class="text-2xl font-bold text-green-500">Add My Project</h1>
+        </section>
+
+        {{! FORM }}
+        <form
+          class="space-y-4"
+          action="/add-project"
+          method="POST"
+          enctype="multipart/form-data"
+          id="form-submit"
+        >
+          {{! PROJECT NAME }}
+          <div>
+            <label
+              for="project_name"
+              class="block text-sm font-medium mb-1"
+            >Project Name</label>
+            <input
+              type="text"
+              name="project_name"
+              id="project_name"
+              required
+              class="w-full rounded-md px-3 py-1.5 bg-white dark:bg-zinc-900 text-sm"
+            />
+          </div>
+
+          {{! DESCRIPTION }}
+          <div>
+            <label
+              for="description"
+              class="block text-sm font-medium mb-1"
+            >Description</label>
+            <textarea
+              name="description"
+              id="description"
+              rows="4"
+              required
+              class="w-full rounded-md px-3 py-1.5 bg-white dark:bg-zinc-900 text-sm"
+            ></textarea>
+          </div>
+
+          {{! TECHNOLOGIES }}
+          <div>
+            <label class="block text-sm font-medium mb-2">Technologies</label>
+            <div class="grid grid-cols-2 gap-2 sm:grid-cols-4 text-sm">
+              <label class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="technologies"
+                  value="Node"
+                  class="accent-green-500"
+                />
+                Node
+              </label>
+              <label class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="technologies"
+                  value="React"
+                  class="accent-green-500"
+                />
+                React
+              </label>
+              <label class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="technologies"
+                  value="Next"
+                  class="accent-green-500"
+                />
+                Next
+              </label>
+              <label class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="technologies"
+                  value="Typescript"
+                  class="accent-green-500"
+                />
+                TypeScript
+              </label>
+              <label class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="technologies"
+                  value="Tailwind"
+                  class="accent-green-500"
+                />
+                Tailwind
+              </label>
+              <label class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="technologies"
+                  value="PostgreSQL"
+                  class="accent-green-500"
+                />
+                PostgreSQL
+              </label>
+              <label class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="technologies"
+                  value="Express"
+                  class="accent-green-500"
+                />
+                Express
+              </label>
+              <label class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="technologies"
+                  value="Bootstrap"
+                  class="accent-green-500"
+                />
+                Bootstrap
+              </label>
+            </div>
+          </div>
+
+          {{! GITHUB LINK }}
+          <div>
+            <label
+              for="github_links"
+              class="block text-sm font-medium mb-1"
+            >GitHub Link</label>
+            <input
+              type="text"
+              name="github_link"
+              id="github_link"
+              required
+              class="w-full rounded-md px-3 py-1.5 bg-white dark:bg-zinc-900 text-sm"
+            />
+          </div>
+
+          {{! UPLOAD IMAGE }}
+          <div>
+            <label for="upload" class="block text-sm font-medium mb-1">
+              Upload Image</label>
+            <input
+              type="file"
+              accept="image/*"
+              name="upload"
+              id="upload"
+              required
+              class="block w-full text-sm file:mr-4 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:font-medium file:bg-green-50 file:text-green-700 hover:file:bg-green-100"
+            />
+          </div>
+
+          {{! SUBMIT BUTTON }}
+          <div>
+            <button
+              type="submit"
+              id="submit"
+              class="w-full bg-green-500 text-white py-2 rounded-md text-sm hover:bg-green-600 transition"
+            >
+              Add Project
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="/js/theme.js"></script>
+  </body>
+</html>

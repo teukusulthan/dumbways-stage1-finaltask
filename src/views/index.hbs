@@ -143,16 +143,16 @@
       {{!-- SPACER --}}
       <div class="h-20"></div>
       <div id="mobile-drawer" class="fixed inset-0 z-40 ">
-         <!-- Backdrop -->
+         {{!-- BACKDROP --}}
          <div
             class="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 opacity-0"
             ></div>
-         <!-- Drawer Content -->
+         {{!-- DRAWER CONTENT --}}
          <div
             class="absolute right-0 h-full w-56 bg-white dark:bg-zinc-950 shadow-xl transform translate-x-full transition-transform duration-500 ease-in-out z"
             >
             <div class="flex flex-col h-full">
-               <!-- Close Button -->
+               {{!-- CLOSE BUTTON --}}
                <div class="flex justify-end p-4">
                   <button
                      id="close-drawer"
@@ -173,7 +173,7 @@
                      </svg>
                   </button>
                </div>
-               <!-- Mobile Menu Links -->
+               {{!-- MOBILE MENU LINKS --}}
                <div class="flex flex-col px-6 py-4 space-y-6">
                   <a
                      href="#tech-stack"
@@ -284,24 +284,24 @@
             </div>
          </div>
          <div id="tech-stack">
-            <!-- Tech Stack Section -->
+            {{!-- TECH STACK SECTION --}}
             <div class="mb-24">
                <h2 class="text-2xl md:text-3xl font-bold mb-12">
                   Tech Stack - Daily Development Toolkit
                </h2>
-               <!-- Swiper Container -->
+               {{!-- Swiper Container --}}
                <div class="relative">
-                  <!-- Gradient Overlay Left -->
+                  {{!-- GRADIENT OVERLAY LEFT --}}
                   <div
                      class="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-white dark:from-zinc-950 to-transparent pointer-events-none"
                      ></div>
-                  <!-- Gradient Overlay Right -->
+                  {{!-- GRADIENT OVERLAY RIGHT --}}
                   <div
                      class="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-white dark:from-zinc-950 to-transparent pointer-events-none"
                      ></div>
                   <div class="swiper tech-swiper max-h-[140px]">
                      <div class="swiper-wrapper py-5">
-                        <!-- Node.js -->
+                        {{!-- NODE.JS --}}
                         <div class="swiper-slide">
                            <div class="tech-item">
                               <div class="tech-icon">
@@ -310,7 +310,7 @@
                               <span>Node.js</span>
                            </div>
                         </div>
-                        <!-- Express.js -->
+                        {{!-- EXPRESS.JS --}}
                         <div class="swiper-slide">
                            <div class="tech-item">
                               <div class="tech-icon">
@@ -319,7 +319,7 @@
                               <span>Express.js</span>
                            </div>
                         </div>
-                        <!-- TypeScript -->
+                        {{!-- TYPESCRIPT --}}
                         <div class="swiper-slide">
                            <div class="tech-item">
                               <div class="tech-icon">
@@ -328,7 +328,7 @@
                               <span>TypeScript</span>
                            </div>
                         </div>
-                        <!-- JavaScript -->
+                        {{!-- JAVASCRIPT --}}
                         <div class="swiper-slide">
                            <div class="tech-item">
                               <div class="tech-icon">
@@ -337,7 +337,7 @@
                               <span>JavaScript</span>
                            </div>
                         </div>
-                        <!-- PostgreSQL -->
+                        {{!-- POSTGRESQL --}}
                         <div class="swiper-slide">
                            <div class="tech-item">
                               <div class="tech-icon">
@@ -346,7 +346,7 @@
                               <span>PostgreSQL</span>
                            </div>
                         </div>
-                        <!-- React -->
+                        {{!-- REACT --}}
                         <div class="swiper-slide">
                            <div class="tech-item">
                               <div class="tech-icon">
@@ -355,7 +355,7 @@
                               <span>React</span>
                            </div>
                         </div>
-                        <!-- Next.js -->
+                        {{!-- NEXT.JS --}}
                         <div class="swiper-slide">
                            <div class="tech-item">
                               <div class="tech-icon">
@@ -364,7 +364,7 @@
                               <span>Next.js</span>
                            </div>
                         </div>
-                        <!-- Tailwind -->
+                        {{!-- TAILWIND --}}
                         <div class="swiper-slide">
                            <div class="tech-item">
                               <div class="tech-icon">
@@ -423,7 +423,7 @@
                padding: 0.5rem;
                }
                }
-               /* Swiper Custom Styles */
+              
                .tech-swiper {
                overflow: hidden;
                }
@@ -438,13 +438,13 @@
             </style>
          </div>
          <div id="experience">
-            <!-- Experience Section -->
+            {{!-- EXPERIENCE SECTION --}}
             <div class="mb-20">
                <div class="mb-10">
                   <h2 class="text-2xl md:text-3xl font-bold">Experience</h2>
                </div>
                <div class="space-y-6">
-                  <!-- DumbWays -->
+                  {{!-- DUMBWAYS --}}
                   <div class="flex flex-col md:flex-row items-start border border-gray-200 dark:border-zinc-800 p-6 md:p-8 rounded-xl bg-white dark:bg-zinc-900">
                      <img
                         src="assets/images/dumbways.png"
@@ -483,72 +483,56 @@
                <h2 class="text-2xl md:text-3xl font-bold">My Projects:</h2>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
+               {{#each projects}}
                <div class="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl shadow-sm overflow-hidden transition-shadow hover:shadow-md">
                   <div class="relative h-60 flex items-center justify-center bg-gray-100 dark:bg-zinc-900">
-                     <img src="assets/images/bakso.jpg" alt="Hallo Corona Screenshot" class="w-full h-full object-contain transition-opacity duration-300 hover:opacity-90" />
+                     <img src="{{upload}}" alt="{{project_name}}" class="w-full h-full object-contain transition-opacity duration-300 hover:opacity-90" />
                   </div>
                   <div class="p-6 md:p-8 space-y-4">
-                     <h3 class="font-semibold text-xl">Nawasmara</h3>
-                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Web-based platform offering verified COVID-19 information and local support.
-                     </p>
+                     <h3 class="font-semibold text-xl">{{project_name}}</h3>
+                     <p class="text-sm text-gray-600 dark:text-gray-400">{{description}}</p>
+                     {{#if technologies}}
                      <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-zinc-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400">React</span>
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-zinc-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400">Go</span>
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-zinc-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400">PostgreSQL</span>
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-zinc-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400">Bootstrap</span>
+                        {{#each technologies}}
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-zinc-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400">{{this}}</span>
+                        {{/each}}
                      </div>
+                     {{/if}}
                      <div class="flex flex-wrap gap-3 items-center text-xs">
-                        <a href="https://github.com/teukusulthan" target="_blank" class="inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
-                           <svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                        <a href="https://{{github}}" target="_blank" class="inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+                           <svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59
+                                 .4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49
+                                 -2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94
+                                 -.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+                                 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
+                                 .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89
+                                 -3.64-3.95 0-.87.31-1.59.82-2.15
+                                 -.08-.2-.36-1.02.08-2.12 0 0 .67-.21
+                                 2.2.82.64-.18 1.32-.27 2-.27s1.36.09
+                                 2 .27c1.53-1.04 2.2-.82 2.2-.82
+                                 .44 1.1.16 1.92.08 2.12.51.56.82
+                                 1.27.82 2.15 0 3.07-1.87 3.75
+                                 -3.65 3.95.29.25.54.73.54 1.48
+                                 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38
+                                 A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
                            </svg>
                            View on GitHub
                         </a>
                         <span class="inline-flex items-center text-gray-500 dark:text-gray-400">
                            <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6..."></path>
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6..." />
                            </svg>
                            Demo Unavailable
                         </span>
                      </div>
                   </div>
                </div>
-               <div class="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl shadow-sm overflow-hidden transition-shadow hover:shadow-md">
-                  <div class="relative h-60 flex items-center justify-center bg-gray-100 dark:bg-zinc-900">
-                     <img src="assets/images/bakso.jpg" alt="Hallo Corona Screenshot" class="w-full h-full object-contain transition-opacity duration-300 hover:opacity-90" />
-                  </div>
-                  <div class="p-6 md:p-8 space-y-4">
-                     <h3 class="font-semibold text-xl">Nawasmara</h3>
-                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                        Web-based platform offering verified COVID-19 information and local support.
-                     </p>
-                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-zinc-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400">React</span>
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-zinc-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400">Go</span>
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-zinc-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400">PostgreSQL</span>
-                        <span class="px-3 py-1 bg-gray-100 dark:bg-zinc-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400">Bootstrap</span>
-                     </div>
-                     <div class="flex flex-wrap gap-3 items-center text-xs">
-                        <a href="https://github.com/teukusulthan" target="_blank" class="inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
-                           <svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                           </svg>
-                           View on GitHub
-                        </a>
-                        <span class="inline-flex items-center text-gray-500 dark:text-gray-400">
-                           <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6..."></path>
-                           </svg>
-                           Demo Unavailable
-                        </span>
-                     </div>
-                  </div>
-               </div>
+               {{/each}}
             </div>
          </div>
          <div id="contact">
-            <!-- Contact Section -->
+            {{!-- Contact Section --}}
             <div class="mb-20 text-center">
                <h2 class="text-2xl md:text-3xl font-bold mb-3">
                   Interested in working together?

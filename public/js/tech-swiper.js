@@ -2,29 +2,25 @@ document.addEventListener("DOMContentLoaded", function () {
   const swiper = new Swiper(".tech-swiper", {
     slidesPerView: "auto",
     spaceBetween: 30,
-    loop: false,
+    loop: false, // Manual loop simulation using cloned slides
     allowTouchMove: true,
-    speed: 5000,
+    speed: 5000, // Smooth continuous scroll speed
     autoplay: {
-      delay: 0,
-      disableOnInteraction: false,
+      delay: 0, // No delay between loops
+      disableOnInteraction: false, // Keep autoplay running after interaction
       reverseDirection: false,
     },
     breakpoints: {
-      320: {
-        spaceBetween: 20,
-      },
-      480: {
-        spaceBetween: 30,
-      },
-      640: {
-        spaceBetween: 40,
-      },
+      320: { spaceBetween: 20 },
+      480: { spaceBetween: 30 },
+      640: { spaceBetween: 40 },
     },
     on: {
+      // Before Swiper initializes
       beforeInit: function () {
-        // Duplicate slides for smoother infinite loop
         const slides = this.el.querySelectorAll(".swiper-slide");
+
+        // Clone each slide to simulate infinite loop visually
         slides.forEach((slide) => {
           this.el
             .querySelector(".swiper-wrapper")
@@ -34,6 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  // Force start autoplay
+  // Ensure autoplay starts immediately
   swiper.autoplay.start();
 });
