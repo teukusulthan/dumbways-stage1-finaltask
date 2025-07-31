@@ -46,7 +46,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // === Health Check Route ===
 app.get("/health", (req, res) => {
-  res.send("✅ App is running");
+  res.send("App is running");
 });
 
 // === Homepage - Display All Projects ===
@@ -64,7 +64,7 @@ app.get("/", async (req, res) => {
 
     res.render("index", { projects });
   } catch (err) {
-    console.error("❌ Error fetching projects:", err);
+    console.error("Error fetching projects:", err);
     res.status(500).send("Internal Server Error");
   }
 });
@@ -93,12 +93,12 @@ app.post("/add-project", upload.single("upload"), async (req, res) => {
 
     res.redirect("/");
   } catch (err) {
-    console.error("❌ Error saving project:", err);
+    console.error("Error saving project:", err);
     res.status(500).send("Failed to save project");
   }
 });
 
 // === Start Server ===
 app.listen(port, () => {
-  console.log(`✅ App listening on http://localhost:${port}`);
+  console.log(`App listening on http://localhost:${port}`);
 });
