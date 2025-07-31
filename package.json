@@ -4,8 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "build:css": "postcss src/assets/css/styles.css -o public/css/styles.css",
     "watch:css": "postcss src/assets/css/styles.css -o public/css/styles.css --watch"
   },
@@ -13,6 +12,9 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "express": "^5.1.0",
     "hbs": "^4.2.0",

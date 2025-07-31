@@ -6,7 +6,7 @@ import multer from "multer";
 import hbs from "hbs";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // === ESM Compatibility ===
 const __filename = fileURLToPath(import.meta.url);
@@ -14,12 +14,10 @@ const __dirname = path.dirname(__filename);
 
 // === PostgreSQL Connection ===
 const db = new Pool({
-  user: "postgres",
-  password: "root",
-  host: "localhost",
-  port: 5432,
-  database: "du-stage1-final",
-  max: 20,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // Required for Railway and other hosts
+  },
 });
 
 // === Multer Storage Configuration ===
