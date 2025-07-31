@@ -12,6 +12,8 @@ const port = process.env.PORT || 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+console.log("DATABASE_URL:", process.env.DATABASE_URL);
+
 // === PostgreSQL Connection ===
 const db = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -60,6 +62,7 @@ app.get("/", async (req, res) => {
 
     res.render("index", { projects });
   } catch (err) {
+    console.error("❌ Error in GET /:", err); // ADD THIS
     res.status(500).send("Internal Server Error");
   }
 });
