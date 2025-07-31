@@ -16,7 +16,7 @@ const __dirname = path.dirname(__filename);
 const db = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
-    rejectUnauthorized: false, // Required for Railway and other hosts
+    rejectUnauthorized: false, // Required for Railway
   },
 });
 
